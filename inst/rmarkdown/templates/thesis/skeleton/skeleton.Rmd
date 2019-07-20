@@ -1,5 +1,5 @@
 ---
-authortitle: 'Dipl. Ing.'
+authortitle: ''
 author: 'Your R. Name'
 date: '31.12.2018'
 place: 'Wien'
