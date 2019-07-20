@@ -10,6 +10,7 @@
 % May 2005 Patrick Carlisle Table of contents chapter definition
 % 2004-2005 Ben Salzberg (BTS) a variety of tweaks here and in the template
 % 2015 Chester Ismay (CII) modified to create R Markdown template
+% 2019 Benjamin Schwendinger (TUW) modified to create R Markdown template for TU Wien
 %
 % Oddities:
 %
@@ -31,6 +32,9 @@
 \RequirePackage{fancyhdr}
 % Added by CII to produce nice looking code in BeginVerbatimEnvironment
 \RequirePackage{fancyvrb}
+
+% Added by Ben
+\usepackage{graphicx}
 
 % Added by CII
 \usepackage{ifxetex,ifluatex}
@@ -63,38 +67,6 @@
 % Add ',fontsize=\small' for more characters per line
 \usepackage{framed}
 \definecolor{shadecolor}{RGB}{248,248,248}
-% \newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
-% \newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{{#1}}}}
-% \newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{{#1}}}
-% \newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{{#1}}}
-% \newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{{#1}}}
-% \newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{{#1}}}
-% \newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{{#1}}}
-% \newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{{#1}}}
-% \newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{{#1}}}
-% \newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{{#1}}}
-% \newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{{#1}}}
-% \newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{{#1}}}
-% \newcommand{\ImportTok}[1]{{#1}}
-% \newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{{#1}}}}
-% \newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{{#1}}}}}
-% \newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{{#1}}}}}
-% \newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{{#1}}}}}
-% \newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{{#1}}}
-% \newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{{#1}}}
-% \newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{{#1}}}
-% \newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{{#1}}}}
-% \newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{{#1}}}}
-% \newcommand{\BuiltInTok}[1]{{#1}}
-% \newcommand{\ExtensionTok}[1]{{#1}}
-% \newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{{#1}}}}
-% \newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{{#1}}}
-% \newcommand{\RegionMarkerTok}[1]{{#1}}
-% \newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{{#1}}}}}
-% \newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{{#1}}}}}
-% \newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{{#1}}}
-% \newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{{#1}}}}
-% \newcommand{\NormalTok}[1]{{#1}}
 
 \setlength{\emergencystretch}{3em}  % prevent overfull lines
 \providecommand{\tightlist}{%
@@ -182,19 +154,11 @@
 \addtolength\topmargin{-\headheight}
 \addtolength\topmargin{-\headsep}
 
-%\setlength{\oddsidemargin}{.6in}
-%\setlength{\evensidemargin}{0in}
-%\setlength{\textwidth}{5.9in}
-%\setlength\topmargin{0in}
-%\addtolength\headheight{2.5pt}
-%\addtolength\topmargin{-\headheight}
-%\addtolength\topmargin{-\headsep}
-%\addtolength\textheight{1in}
-%\addtolength\textheight{\headheight}
-%\addtolength\textheight{\headsep}
 
 \def\degree#1{\gdef \@degree{#1}}
 \def\@degree{\@latex@warning@no@line{No \noexpand\degree given}}
+\def\diplom#1{\gdef \@diplom{#1}}
+\def\@diplom{\@latex@warning@no@line{No \noexpand\diplom given}}
 \def\institution#1{\gdef \@institution{#1}}
 \def\@institution{\@latex@warning@no@line{No \noexpand\institution given}}
 \def\division#1{\gdef \@division{#1}}
@@ -211,6 +175,17 @@
 \global\let\@altadvisor\@empty
 \newif\if@altadvisor
 \@altadvisorfalse
+
+\def\matrikelnummer#1{\gdef \@matrikelnummer{#1}}
+\def\@matrikelnummer{\@latex@warning@no@line{No \noexpand\matrikelnummer given}}
+\def\authortitle#1{\gdef \@authortitle{#1}}
+\def\@authortitle{\@latex@warning@no@line{No \noexpand\authortitle given}}
+\def\advisortitle#1{\gdef \@advisortitle{#1}}
+\def\@advisortitle{\@latex@warning@no@line{No \noexpand\advisortitle given}}
+\def\altadvisortitle#1{\gdef \@altadvisortitle{#1}}
+\def\@altadvisortitle{\@latex@warning@no@line{No \noexpand\altadvisortitle given}}
+\def\place#1{\gdef \@place{#1}}
+\def\@place{\@latex@warning@no@line{No \noexpand\place given}}
 
 \renewcommand\l@chapter[2]{%
   \ifnum \c@tocdepth >\m@ne
@@ -284,64 +259,55 @@
 % I hacked the title page to all be the same font size
 % as requested by the library, BTS 2005
 
+\definecolor{change}{rgb}{0,.55,.55}
+
 \renewcommand{\maketitle}{%
   {\pagestyle{empty}
-  \fontsize{12}{14}\selectfont
   \begin{titlepage}
-  \newpage
-  \let\footnotesize\small
-  \let\footnoterule\relax
-  \let \footnote \thanks
-
-  \baselineskip = 1.4\baselineskip
-  \setbox0=\hbox{of the Requirements for the Degree}
-
+  %\vspace*{-2cm}
   \begin{center}
-    \setcounter{page}{1}
-    \null\vfil
-    {\fontsize{12}{14}\selectfont \@title}
-    \vfil
-    \centerline{\hbox to \wd0 {\hbox{}\hrulefill\hbox{}}}
-    \vfil
-    A Thesis \\
-    Presented to \\
-    \@thedivisionof \ \@division \\
-    \@institution
-    \vfil
-    \centerline{\hbox to \wd0 {\hbox{}\hrulefill\hbox{}}}
-    \vfil
-    In Partial Fulfillment \\
-    of the Requirements for the Degree \\
-    \@degree
-    \vfil
-    \centerline{\hbox to \wd0 {\hbox{}\hrulefill\hbox{}}}
-    \bigskip
-    \centerline{}
-    \bigskip
-    {\fontsize{12}{14}\selectfont \lineskip .75em
-    \begin{tabular}[t]{c}%
-      \@author
-    \end{tabular}\par}
-    \vskip 1.5em
-    {\fontsize{12}{14}\selectfont \@date \par}
-  \end{center}\par
-  \end{titlepage}
+    \includegraphics[width=0.45\textwidth]{TULogo.eps}
+    \vskip 1cm
+    {\LARGE D~\Large I~P~L~O~M~A~R~B~E~I~T}
+    \vskip 8mm
+    {\Huge\bfseries \@title \\}
+    \vskip 1cm
+    zur Erlangung des akademischen Grades \\
+    \vskip 8mm
+    {\huge\bfseries \@diplom \\}
+    \vskip 8mm
+    im Rahmen des Studiums \\
+    \vskip 8mm
+    {\Large\bfseries \@degree \\}
+    \vskip 8mm
+    eingereicht von \\
+    \vskip 8mm
+    {\Large\bfseries {\@authortitle} {\@author}}\\[1ex]
+    Matrikelnummer: {\@matrikelnummer}\\[1ex]
+  \end{center}
 
-%% Approved for the division page
-  \cleardoublepage
-  {\fontsize{12}{14}
-  \setbox0=\hbox{Approved for the \@approvedforthe}
-  \thispagestyle{empty}
-  \null\vfil		% just below center of page
-  \par\vskip 6cm	% below center, not center
-  \centerline{\copy0}	% approved
-  \centerline{(\@department)} %major
-  \vskip 1cm		%space to sign
-  \centerline{\makebox[\wd0][c]{\hrulefill}
-	\if@altadvisor \makebox[.5in]{} \makebox[\wd0][c]{\hrulefill} \fi}
-  \centerline{\makebox[\wd0][c]{\@advisor}
-	\if@altadvisor \makebox[.5in]{} \makebox[\wd0][c]{\@altadvisor} \fi}
-  \par\vfil\null}
+  \vskip 2 cm
+  \noindent
+  \small
+  ausgeführt am {\@department} \\
+  der {\@division} der {\@institution} \\
+  \vskip 0.5 cm
+  \noindent
+  Betreuung \\
+  \begin{tabular}{@{}l@{ }l}
+	Betreuer: & {\@advisortitle} {\@advisor} \\
+	Mitwirkung: & {\@altadvisortitle} {\@altadvisor} \\
+\end{tabular}
+  \vskip 1.5 cm
+
+  \vfill
+
+  \small
+  \noindent
+  {\@place}, am {\@date} %\today
+  \vspace*{-15mm}
+\end{titlepage}
+
   \cleardoublepage
   }
 }

@@ -1,18 +1,23 @@
 ---
+authortitle: 'Dipl. Ing.'
 author: 'Your R. Name'
-date: 'May 20xx'
-institution: 'Reed College'
-division: 'Mathematics and Natural Sciences'
+date: '31.12.2018'
+place: 'Wien'
+institution: 'Technische Universität Wien'
+division: 'Fakultät für Informatik'
+diplom: 'Diplom-Ingenieur'
+advisortitle: 'Ao.Univ.Prof. Dipl.-Ing. Dr.techn.'
 advisor: 'Advisor F. Name'
-# If you have more two advisors, un-silence line 7
-#altadvisor: 'Your Other Advisor'
-department: 'Mathematics'
-degree: 'Bachelor of Arts'
+altadvisortitle: 'Projektass. Dipl.-Ing.'
+altadvisor: 'Your Other Advisor'
+matrikelnummer: 'e01234567'
+department: 'Institut für XXX'
+degree: 'Technische XXXX'
 title: 'My Final College Paper'
 knit: "bookdown::render_book"
 site: bookdown::bookdown_site
 output: 
-#  thesisdown::thesis_pdf: default
+  thesisdown::thesis_pdf: default
   thesisdown::thesis_gitbook: default
 #  thesisdown::thesis_word: default
 #  thesisdown::thesis_epub: default
