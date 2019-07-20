@@ -1,3 +1,7 @@
+# robotdown
+
+This project is an adaption of the [thesisdown](https://github.com/ismayc/thesisdown) package to work for the TU Wien.
+
 # thesisdown
 
 This project was inspired by the [bookdown](https://github.com/rstudio/bookdown) package and is an updated version of my Senior Thesis template in the `reedtemplates` package [here](https://github.com/ismayc/reedtemplates). It was originally designed to only work with the Reed College LaTeX template, but has since been adapted to work with many different institutions by many different individuals. Check out the **Customizing thesisdown to your institution** section below for examples.
@@ -59,21 +63,21 @@ tinytex:::is_tinytex()
 
 You may need to install a few extra LaTeX packages on your first attempt to knit as well. 
 
-To use **thesisdown** from [RStudio](http://www.rstudio.com/products/rstudio/download/):
+To use **robotdown** from [RStudio](http://www.rstudio.com/products/rstudio/download/):
 
-1) Ensure that you have already installed LaTeX and the fonts described above, and are using the latest version of [RStudio](http://www.rstudio.com/products/rstudio/download/). You can use `thesisdown` without RStudio. For example, you can write the Rmd files in your favourite text editor (e.g. [Atom](https://atom.io/), [Notepad++](https://notepad-plus-plus.org/)). But RStudio is probably the easiest tool for writing both R code and text in your thesis. It also provides a nice way to build your thesis while editing. We'll proceed assuming that you have decided to use the RStudio workflow.
+1) Ensure that you have already installed LaTeX and the fonts described above, and are using the latest version of [RStudio](http://www.rstudio.com/products/rstudio/download/). You can use `robotdown` without RStudio. For example, you can write the Rmd files in your favourite text editor (e.g. [Atom](https://atom.io/), [Notepad++](https://notepad-plus-plus.org/)). But RStudio is probably the easiest tool for writing both R code and text in your thesis. It also provides a nice way to build your thesis while editing. We'll proceed assuming that you have decided to use the RStudio workflow.
 
-2) Install the **bookdown** and **thesisdown** packages: 
+2) Install the **bookdown** and **robotdown** packages: 
 
 ```r
 if (!require("remotes")) install.packages("remotes", repos = "http://cran.rstudio.org")
 remotes::install_github("rstudio/bookdown")
-remotes::install_github("ismayc/thesisdown")
+remotes::install_github("ben-schwen/robotdown")
 ```
 
-3) Use the **New R Markdown** dialog to select **Thesis**:
+3) Use the **New R Markdown** dialog to select **TU Wien Thesis**:
 
-    ![New R Markdown](thesis_rmd.png)
+    ![New R Markdown](robot_rmd.png)
 
     Note that this will currently only **Knit** if you name the directory `index` as shown above. This guarantees that `index.html` is generated correctly for the Gitbook version of the thesis.
 
