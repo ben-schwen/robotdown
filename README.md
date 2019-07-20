@@ -24,7 +24,6 @@ In an ideal world, this package would support a variety of different LaTeX templ
 
 Have you created a thesisdown template for your institution and would like to have it included here? Make a PR [similar to the commit done to include `jayhawkdown`](https://github.com/ismayc/thesisdown/commit/760113a076767cf67b6e22339e398bd3f15305c5). I'll review it and merge it in. Let's keep the list going!
 
-
 |College/University                              |Repository                                                                                    |Based on                                                        |
 |:---------------------------------------|:---------------------------------------------------------------------------------------------|:---------------------------------------------------------------|
 |American University                    |[SimonHeuberger/eagledown](https://github.com/SimonHeuberger/eagledown)                     |[benmarwick/huskydown](https://github.com/benmarwick/huskydown) |
@@ -77,7 +76,7 @@ remotes::install_github("ben-schwen/robotdown")
 
 3) Use the **New R Markdown** dialog to select **TU Wien Thesis**:
 
-    ![New R Markdown](robot_rmd.png)
+    ![New R Markdown](robot_rmd.PNG)
 
     Note that this will currently only **Knit** if you name the directory `index` as shown above. This guarantees that `index.html` is generated correctly for the Gitbook version of the thesis.
 
